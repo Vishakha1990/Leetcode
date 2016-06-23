@@ -1,0 +1,26 @@
+/* learnt about map.find(): returns map.end() if entry not found. */
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        unordered_map<ListNode*,string> mymap ;
+        
+        while(head!=NULL) {
+            if(mymap.find(head) == mymap.end()) {
+                mymap[head] = true ;
+                head = head->next ;
+            } else
+            return true ;
+            
+        }
+        return false ;
+    }
+};
