@@ -1,0 +1,18 @@
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        vector<char> mapStoT(256,0);
+        vector<char> mapTtoS(256,0);
+        for(int i = 0 ; i < s.size() ; i++) {
+            if ((mapStoT[s[i]] ==0) && (mapTtoS[t[i]]==0)) {
+                mapStoT[s[i]] = t[i] ;
+                mapTtoS[t[i]] = s[i] ;
+            } else if (mapStoT[s[i]] != t[i] || mapTtoS[t[i]] != s[i]) {
+         return false ;    
+        }
+            
+        }
+        return true ;
+        
+    }
+};
