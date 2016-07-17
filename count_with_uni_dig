@@ -1,0 +1,22 @@
+// think from probability perspective . How many unique digits can you create. And then code like DP
+
+
+
+class Solution {
+public:
+    int countNumbersWithUniqueDigits(int n) {
+        if(n==0)
+        return 1 ;
+        int unique_digits = 9;
+        int avail_dig = 9 ;
+        int res =10 ;
+        while(n>1 && avail_dig>0) {
+            unique_digits = unique_digits*avail_dig ;
+            res = res + unique_digits ;
+            n-- ;
+            avail_dig-- ;
+        }
+        return res ;
+        
+    }
+};
