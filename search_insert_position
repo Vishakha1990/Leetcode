@@ -1,0 +1,24 @@
+class Solution {
+public:
+ int searchInsert(vector<int>& nums, int begin , int end, int target) {
+         int mdx = (begin+end)/2 ;
+        if(end<=begin) {
+             if(target <= nums[end])
+         return end ;
+         else 
+         return end+1 ;
+         }
+         if(target==nums[mdx])
+         return mdx ;
+          if(target< nums[mdx])
+         return searchInsert(nums,0,mdx,target) ;
+          else
+         return searchInsert(nums,mdx+1, end,target) ;
+         
+     }
+
+    int searchInsert(vector<int>& nums, int target) {
+        
+        return searchInsert(nums, 0 , nums.size()-1, target ) ;
+    }
+};
